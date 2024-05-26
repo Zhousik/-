@@ -1,0 +1,23 @@
+{
+    "nodes":[{"name":"周思凯","image":"12.jpg","intro":"周思凯是重庆理工大学电子信息一班组织委员"},
+    {"name":"陈钰彬","image":"15.jpg","intro":"陈钰彬是重庆理工大学电子信息一班副班长"},
+    {"name":"许睿","image":"14.jpg","intro":"许睿是重庆理工大学电子信息三班成员，党站部长"},
+    {"name":"王文越","image":"16.jpg","intro":"王文越是重庆理工大学电子信息二班成员"},
+    {"name":"王培容","image":"17.jpg","intro":"王培容是重庆理工大学电子信息专业老师"},
+    {"name":"黄丽雯","image":"23.jpg","intro":"黄丽雯是重庆理工大学电子信息专业老师"},
+    {"name":"柴家乐","image":"13.jpg","intro":"柴家乐是南京信息工程大学大学大三学生，周思凯高中同学"},
+    {"name":"周思艺","image":"20.jpg","intro":"周思艺是周思凯的姐姐"},
+    {"name":"吴学勤","image":"25.jpg","intro":"吴学勤是张庄完全小学语文老师，已退休"},
+    {"name":"张翔宇","image":"26.jpg","intro":"张翔宇是重庆理工大学自动化二班成员"},
+    {"name":"严江洋","image":"24.jpg","intro":"严江洋是重庆理工大学电子信息四班成员"}
+    ],
+    "edges":
+    [{"source":0,"target":1,"relation":"同学"},{"source":0,"target":2,"relation":"室友"},{"source":0,"target":3,"relation":"同学&前室友"},
+	{"source":0,"target":4,"relation":"师生"},{"source":0,"target":5,"relation":"师生"}, {"source":0,"target":6,"relation":"高中同学"}, 
+	{"source":0,"target":7,"relation":"姐弟"},{"source":0,"target":8,"relation":"师生"},{"source":0,"target":9,"relation":"队友"}, 
+	{"source":0,"target":10,"relation":"队友"}, {"source":1,"target":2,"relation":"同学"},{"source":1,"target":4,"relation":"师生"},
+	{"source":2,"target":5,"relation":"师生"}, {"source":2,"target":3,"relation":"同学"},  {"source":4,"target":5,"relation":"同事"},
+	{"source":7,"target":8,"relation":"师生"},{"source":2,"target":5,"relation":"师生"},{"source":3,"target":5,"relation":"师生"}, 
+	{"source":9,"target":10,"relation":"队友"},{"source":9,"target":1,"relation":"同实验室成员"},
+	{"source":10,"target":2,"relation":"朋友"},{"source":10,"target":1,"relation":"同实验室成员"}]
+}

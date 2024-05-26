@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="个人简介.css">
+    <title>Parallax Scrolling</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            /* z-index: 1; */
+        }
+        #svgTree{
+            top:300%;
+            width:100%;
+            height:100%;
+        }
+        .nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(#87CEEB, #4682B4);
+        }
+
+        .navlist li {
+            float: right;
+            height: 40px;
+            width: 100px;
+
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .navlist a {
+            color: black;
+            display: block;
+        }
+
+        .navlist {
+            width: 1400px;
+            margin: auto;
+        }
+
+        .navlist a:hover {
+            background: #00CED1;
+        }
+        .tooltip{  
+				position: absolute;  
+				width: 220px;  
+				height: auto;  
+				font-family: simsun;  
+				font-size: 20px;
+				text-align: left;  
+				color: white;  
+				border-width: 1px solid black;  
+				background:rgba(0, 0, 0, 0.3); 
+				border-radius: 3px;  
+			}  
+        .lunbo{
+                position: absolute;
+                opacity: 0;
+                top:260%;
+                left:50%;
+                transform: translate(-20%, -50%);
+                /* width:20%;
+                height:60%; */
+                animation: Simg 20s infinite;
+    
+                /* z-index: 10; */
+            }
+        @keyframes Simg {
+                /* 0%{opacity: 0; transform:translate(0,0);}
+                0.5%{opacity: 1;transform:translate(-30%,0);}
+                9%{opacity: 1;}
+                10%{opacity:0;transform:translate(-30%,0);} */
+                0%{opacity: 0; transform:translate(50%,-50%);}
+                10%{opacity: 0.3;transform:translate(50%,-50%);}
+                20%{opacity: 1;transform:translate(-50%,-50%);}
+                30%{opacity:0.3;transform:translate(-150%,-50%);}
+                40%{opacity:0;transform:translate(-150%,-50%);}
+
+            }
+                img:nth-child(0){animation-delay: 0s;}
+                img:nth-child(1){animation-delay: 2s;}
+                img:nth-child(2){animation-delay: 4s;}
+                img:nth-child(3){animation-delay: 6s;}
+                img:nth-child(4){animation-delay: 8s;}
+                img:nth-child(5){animation-delay: 10s;}
+                img:nth-child(6){animation-delay: 12s;}
+                img:nth-child(7){animation-delay: 14s;}
+                img:nth-child(8){animation-delay: 16s;}
+                img:nth-child(9){animation-delay: 18s;}
+                img:nth-child(10){animation-delay: 20s;}
+        .zytext{
+            position: absolute;
+            top:336%;
+            left:50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section id="img-one" class="img">
+            <h1>周思凯的个人简介</h1>
+        </section>
+        <section class="content-one">
+            <div class="text-box">
+                <div class="cnt">
+                    <h2>学习</h2>
+                    <p>
+                        电气与电子工程学院2021级电子信息工程专业，现任班级组织委员职务，在校期间平均学分绩点3.81，班级排名第3，专业排名13，在已修的56门课程中，有29门达到90分及以上。
+                    </p>
+                    <!-- <p>
+                        <a href="#" class="btn">TAKE <strong>CARE OF</strong><em>YOURSEFL</em></a>
+                    </p> -->
+                </div>
+            </div>
+        </section>
+        <section class="content-two">
+            <div class="text-box">
+                <div class="cnt">
+                    <h2>竞赛</h2>
+                    <p>
+                        加入407实验室，曾获重庆市“合泰”杯第十五届大学生单片机应用设计竞赛二等奖、TI杯全国大学生电子设计大赛重庆市二等奖等荣誉奖项16项。
+                    </p>
+                    <!-- <p>
+                        <a href="#" class="btn">BEST <strong>WISHS</strong><em>FOR YOU</em></a>
+                    </p> -->
+                </div>
+            </div>
+        </section>
+        <section class="content-three">
+            <div class="text-box">
+                <div class="cnt">
+                    <h2>志愿服务</h2>
+                    <p>
+                        累计志愿服务时长82小时，参与“感恩母校，分享青春”寒假招生志愿活动、“扬志愿风采，护祖国未来”暖心活动等，并且加入重庆图书馆志愿者服务队，多次参加周末的图书馆志愿活动
+                    </p>
+                    <!-- <p>
+                        <a href="#" class="btn">TAKE <strong>CARE OF</strong><em>YOURSEFL</em></a>
+                    </p> -->
+                </div>
+            </div>
+        </section>
+        <section id="img-two" class="img">
+            <h1>人际关系</h1>
+        </section>
+        <!-- <section id="footer">FOOTER</section> -->
+    </div>
+    <div class="nav">
+        <ul class="navlist">
+            <li><a href="登录.html">登录</a></li>
+            <!-- <li><a href="学校.html">学校</a></li> -->
+            <li><a href="长兴map.html">家乡</a></li>
+            <li><a href="个人简介.html">简介</a></li>
+            <li><a href="主页.html">主页</a></li>
+        </ul>
+    </div>
+
+<!-- 成绩饼图 -->
+<script src="http://d3js.org/d3.v4.min.js"></script>
+<script>
+        var w=window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        var h=window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        var d3v4 = d3;
+        var width =w;
+        var height =h;
+        d3v4.csv("csv/data.csv",function(dataset){
+        var svg=d3v4.select("body")
+                    .append("svg")
+                    .attr("width",width)
+                    .attr("height",height)
+                    .attr("style", "transform: translate(-33%,110%)");
+        var pie =d3v4.pie()
+                    .value(function(d){return d.课程数;});
+        var piedata =pie(dataset);
+        var innerRadius=50;
+        var arc=d3v4.arc()
+                .innerRadius(innerRadius)
+                .outerRadius(function(d){
+                    var value=d.value;
+                    return value*1.5+150;
+                })
+                .cornerRadius(10);
+        var color=d3v4.scaleOrdinal(d3v4.schemeCategory10);
+        var arcs=svg.selectAll("g")
+                    .data(piedata)
+                    .enter()
+                    .append("g")
+                    .attr("transform","translate("+(width/2)+","+(height/2)+")");
+        arcs.append("path")
+            .attr("id","path1")
+            .attr("fill",function(d,i){return color(i);})
+            .attr("d",function(d){return arc(d)})
+            .on("mouseover",function(d,i){
+                d3v4.select(this)
+                    .attr("fill",d3v4.rgb(color(i)).brighter());
+            
+                var b=d.value*100/91;
+                svg.append("text")
+                    .attr("id","value")
+                    .attr("x",width/2)
+                    .attr("y",height/2+5)
+                    .attr("text-anchor","middle")
+                    .attr("fill",color(i))
+                    .attr("font-size",20)
+                    .text(b.toFixed(2)+"%");
+                    // .text((d.value*100/91)+"%");
+            })
+            .on("mouseout",function(d,i){
+                d3v4.select(this)
+                    .transition()
+                    .duration(250)
+                    .attr("fill",color(i));
+                    // d3.select("#info")
+                    // .remove();
+                    d3v4.select("#value")
+                    .remove();   
+            });
+            d3v4.selectAll("#path1").attr("transform",function(d,i){
+                var midAngle=(d.startAngle+d.endAngle)/2;
+                return "translate("+(2*Math.sin(midAngle))+","+(-2*Math.cos(midAngle))+")";
+            });
+
+
+        arcs.append("text")
+            .attr("transform",function(d){
+                var x=arc.centroid(d)[0]*1;
+                var y=arc.centroid(d)[1]*1;
+                return "translate("+x+","+y+")";
+            })
+            .attr("text-anchor","middle")
+            .attr("fill","white")
+            .attr("font-size",function(d){return d.data["课程数"]+"px";})
+            .text(function(d){return d.data["成绩"]+": "+d.data["课程数"]+"门";})
+            
+            .on("mouseover",function(d,i){
+                if((d.data["课程数"])<20){
+                    d3v4.select(this)
+                    .attr("font-size",24);
+                }
+                var b=d.value*100/91;
+            svg.append("text")
+                    .attr("id","value")
+                    .attr("x",width/2+5)
+                    .attr("y",height/2+5)
+                    .attr("text-anchor","middle")
+                    .attr("fill",color(i))
+                    .attr("font-size",20)
+                    .text(b.toFixed(2)+"%");
+            })
+            .on("mouseout",function(d,i){
+                
+                if((d.data["课程数"])<20){
+                    d3v4.select(this)
+                    .attr("font-size",function(d){
+                        return d.data["课程数"]+"px";
+                    });
+                }
+                // d3.select("#info")
+                //     .remove();
+                d3v4.select("#value")
+                    .remove();
+            });
+            var tooltip=d3v4.select("body")
+                            .append("div")
+                            .attr("class","tooltip")
+                            .style("opacity",0.0);
+            arcs.on("mouseover",function(d){
+                tooltip.html(d.data["成绩"]+"分的课程数有"+d.data["课程数"]+"门")
+                        .style("left",(d3v4.event.pageX)+"px")
+                        .style("top",(d3v4.event.pageY+20)+"px")
+                        .style("opacity",1.0)
+                        d3v4.select(this)
+                            .style("curson","move");
+            })
+            .on("mousemove",function(d){
+                tooltip.style("left",(d3v4.event.pageX)+"px")
+                        .style("top",(d3v4.event.pageY+20)+"px");
+            })
+            .on("mouseout",function(d){
+                tooltip.style("opacity",0.0);
+            });
+
+        });
+</script>
+    <!-- 人际关系图 -->
+    <!-- <script src="d3.v3.min.js" charset="utf-8" ></script> -->
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+	<script type="text/javascript">  
+		var  width=(window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth)*0.98;
+		var  height=(window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight);   
+        var d3v3 = d3;
+        var  img_h=50;
+		var  img_w=50;
+		var  radius=10;
+		var svg1=d3v3.select("body")  
+                .append("svg")  
+                .attr("width",width)  
+                .attr("height",height)
+                .attr("style", "transform: translate(0%,400%)");
+                // .style("background-image","null")
+                // .style("background-size", "cover")  // 覆盖整个元素
+                // .style("background-position", "center center")  // 图片居中
+                // .style("background-repeat", "no-repeat"); 
+
+                d3v3.json("json/guanxi.json",function(error,graph){
+                console.log(graph);   
+		var force=d3v3.layout.force()
+                .nodes(graph.nodes)
+				.links(graph.edges)
+				.size([width,height])
+				.linkDistance(300)
+				.charge(-600)
+                .start();	
+ 
+
+        //提示框部分
+		var tooltip=d3v3.selectAll("body")  
+                    .append("div")  
+                    .attr("class","tooltip")  
+                    .style("opacity",0.0);  					
+		var color=d3v3.scale.category20();	
+		var lines=svg1.selectAll("forceLine")
+	             .data(graph.edges)
+				 .enter()
+          	     .append("line")
+				 .attr("class","forceLine")
+				 .style("stroke","gray")
+				 .style("opacity",0.4)
+                 .style("stroke-width",2);	 
+		//绘制箭头
+		var defs=svg1.append("defs");
+		var radius=10;
+		var arrowMarker=defs.append("marker")
+							.attr("id","arrow")
+							.attr("markerUnits","strokeWidth")
+							.attr("markerWidth","8")
+							.attr("markerHeight","8")
+							.attr("viewBox","0 0 4 4")
+							.attr("refX",15)
+							.attr("refY",2)
+							.attr("orient","auto");
+		var arrow_path="M0,1 L4,2 L0,3 L0,1";
+		arrowMarker.append("path")
+                    .attr("id","path2")
+					.attr("d",arrow_path);
+		var path=svg1.selectAll("#path2")
+					.data(graph.edges)
+					.enter()
+					.append("path")
+					.attr("id",function(d,i){
+						return "edgepath"+i;
+					})
+					.attr("class","edges")
+					.attr("marker-end","url(#arrow)");	
+		var color=d3v3.scale.category20();
+
+		var pathtext=svg1.selectAll('.pathText')
+					.data(graph.edges)
+					.enter()
+					.append("text")
+					.attr("class","pathText")
+					.append('textPath')
+					.attr("text-anchor","middle")
+					.attr("startOffset","50%")
+                    .style("fill", "#000000")
+					.style("font-size",15)
+					.attr('xlink:href',function(d,i){return "#edgepath"+i;})
+					.text(function(d){return d.relation;});
+		
+		var  img_h=90;
+		var  img_w=90;
+		var  radius=40;								
+		var circles=svg1.selectAll(".forceCircle")
+	               .data(graph.nodes)
+				   .enter()
+				   .append("circle")
+				   .attr("class","forceCircle")
+				   .attr("r",radius)
+				   .style("stroke","DarkGray")
+				   .style("stroke-width","2.0px")
+				   .attr("fill", function(d, i){
+                //创建圆形图片
+        var defs = svg1.append("defs").attr("id", "imgdefs");
+        var catpattern = defs.append("pattern")
+                   .attr("id", "catpattern" + i)
+                   .attr("height", 1)
+                   .attr("width", 1);
+        catpattern.append("image")
+                .attr("x", - (img_w / 2 - radius-5))
+                .attr("y", - (img_h / 2 - radius-5))
+                .attr("width", img_w*0.9)
+                .attr("height", img_h*0.9)
+                .attr("xlink:href","image/"+d.image);
+                     return "url(#catpattern" + i + ")";
+                    })
+                .on("mouseover",function(d,i){    //加入提示框
+                    tooltip.html("角色简介："+d.intro)
+                            .style("left",(d3v3.event.pageX)+"px")  
+                            .style("top",(d3v3.event.pageY+20)+"px")  
+                            .style("opacity",1.0); 
+                d3v3.select(this)
+                    .style("stroke", "red");     
+                            })
+                .on("mousemove",function(d,i){    //加入提示框
+                    tooltip.style("left",(d3v3.event.pageX)+"px")  
+                            .style("top",(d3v3.event.pageY+20)+"px")  
+                            .style("opacity",1.0)
+                            d3v3.select(this)
+                            .style("stroke", "red"); 
+                        } )
+                .on("mouseout",function(d){
+                            tooltip.style("opacity",0.0)
+                            d3v3.select(this)
+                    .style("stroke", "DarkGray"); 
+                            })
+		.call(force.drag); 
+
+	    var texts=svg1.selectAll(".forceText")
+                 .data(graph.nodes)
+				 .enter()
+				 .append("text")
+				 .attr("class","forceText")
+				 .attr("x",function(d){return d.x;})
+				 .attr("y",function(d){return d.y;})
+				 .style("fill", "white")
+				 .style("stroke-family","仿宋")
+				 .style("font-size","17px")
+                 .attr("dx","-1.5em")
+				 .attr("dy","3em")
+				 .text(function(d){return d.name;});
+			 	
+		force.on("tick",function(){
+			  lines.attr("x1",function(d){return d.source.x;});
+              lines.attr("y1",function(d){return d.source.y;});
+              lines.attr("x2",function(d){return d.target.x;});
+              lines.attr("y2",function(d){return d.target.y;});	
+	          path.attr("d",function(d){
+				return "M"+d.source.x+","+d.source.y+"L"+d.target.x+","+d.target.y;});
+			  circles.attr("cx",function(d){return d.x;});
+			  circles.attr("cy",function(d){return d.y;});
+			  texts.attr("x",function(d){return d.x;});
+			  texts.attr("y",function(d){return d.y;});
+
+		});
+        });
+	</script>
+    <!-- 画成绩直方图 -->
+  
+<script>
+    var d3v3 = d3;
+    d3v3.json("json/data.json", function(error, data) {
+        if (error) {
+            console.error("Error loading data: ", error);
+            return;
+        }
+        tongjitu(data);
+    });
+
+    function tongjitu(data) {
+        var w = (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) * 0.96;
+        var h = (window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight) * 0.9;
+        
+        var svg = d3v3.select("body")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h)
+            .attr("style", "transform: translate(37%,95%)");
+
+        var rectStep = 90;
+        var rectWidth = 75;
+
+        var tooltip = d3v3.select("body")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0.0);
+
+        for (var i = 0; i < data.height.length; i++) {
+            (function(i) { // Use a closure to capture the value of i
+                var rect = svg.append("rect")
+                    .attr("x", i * rectStep)
+                    .attr("y", h - data.height[i] * 3 - 30)
+                    .attr("width", rectWidth)
+                    .attr("height", data.height[i] * 3)
+                    .attr("fill", data.clr[i])
+                    .on("mouseover", function() {
+                        tooltip
+                            .html("课程介绍：" + data.intro[i])
+                            .style("left", (d3v3.event.pageX-100) + "px")
+                            .style("top", (d3v3.event.pageY + 20) + "px")
+                            .style("opacity", 1.0);
+                    })
+                    .on("mousemove", function() {
+                        tooltip
+                            .style("left", (d3v3.event.pageX-100) + "px")
+                            .style("top", (d3v3.event.pageY + 20) + "px");
+                    })
+                    .on("mouseout", function() {
+                        tooltip.style("opacity", 0.0);
+                    });
+
+                svg.append("text")
+                    .attr("font-size", "12px")
+                    .attr("x", i * rectStep + 30)
+                    .attr("y", h - data.height[i] * 3 - 35)
+                    .attr("fill", "white")
+                    .text(data.height[i] + "分");
+
+                svg.append("text")
+                    .attr("font-size", "12px")
+                    .attr("x", i * rectStep)
+                    .attr("y", h - 10)
+                    .attr("fill", "white")
+                    .text(data.name[i]);
+            })(i); // Immediately invoke the function with i
+        }
+    }
+</script>
+    <div>
+    <img src="image/电赛2.jpg" alt="" class="lunbo" width="375" height="500">
+    <img src="image/嵌入式.png" alt="" class="lunbo" width="375" height="500">
+    <img src="image/三创.jpg" alt="" class="lunbo" width="375" height="500">
+    <img src="image/榜样.jpg" alt="" class="lunbo" width="375" height="500">
+    <img src="image/电赛1.jpg" alt="" class="lunbo" width="375" height="500">
+    <img src="image/三好.jpg" alt="" class="lunbo" width="375" height="500">
+    <img src="image/数学.jpg" alt="" class="lunbo" width="500" height="375">
+    <img src="image/无线.jpg" alt="" class="lunbo" width="500" height="375">
+    <img src="image/电赛3.jpg" alt="" class="lunbo" width="500" height="375">
+    <img src="image/合泰.png" alt="" class="lunbo" width="500" height="375">
+</div>
+<!-- 画仿真树 -->
+<svg id="svgTree"></svg>
+<script>
+    var drawTree = function (
+      ctx,
+      startX,
+      startY,
+      length,
+      depth,
+      angle,
+      branchWidth,
+      angleFixed,
+      color
+    ) {
+      var defaultAngle = Math.PI / 2;
+      var defaultPercent = 0.1;
+      var direction = angle < 0 ? -1 : 1;
+      var defaultTime = 50;
+      var rand = Math.random;
+      var defaultBranchesNumber = angleFixed ? 2 : 3 * Math.random() + 1;
+      var timing = angleFixed ? 10 : 20;
+      var endX = startX + length * Math.cos(angle);
+      var endY = startY + length * Math.sin(angle);
+      var newAngle;
+      var newLength;
+      var lineCap;
+      var lineWidth;
+      var strokeWidth;
+      if (--depth <= 0) return true;
+      lineCap = "round";
+      lineWidth = branchWidth;
+      strokeStyle = color == null ? "rgb(0," + ((rand() * 64 + 128) >> 0) + ",0)" : color;
+      var func = function (mStartX, mStartY, mEndX, mEndY) {
+        var aLine = document.createElement("line");
+        ctx.appendChild(aLine);
+        aLine.outerHTML ="<line x1=" +mStartX + " y1=" +mStartY + " x2=" + mEndX + " y2=" + mEndY + " style='stroke:" + strokeStyle +";stroke-width:" + lineWidth + "' />";
+      };
+      func(startX, startY, endX, endY);
+      branchWidth *= 0.55;
+      for (var i = 0; i < defaultBranchesNumber; i++) {
+        newAngle = angleFixed
+          ? i == 0
+            ? angle + defaultAngle / 3
+            : angle + defaultAngle / -3
+          : angle + defaultAngle * rand() - defaultAngle / 2;
+        newLength = angleFixed
+          ? length * 0.7
+          : length * (rand() * 0.55 + 0.4);
+        if (depth == mDepth - 1 && !angleFixed)
+          newAngle = defaultAngle * direction * (rand() * 0.3 + 0.8);
+        setTimeout(
+          function (funcAngle, funcLength) {
+            drawTree(
+              ctx,
+              endX,
+              endY,
+              funcLength,
+              depth,
+              funcAngle,
+              branchWidth,
+              angleFixed,
+              color
+            );
+          },
+          timing,
+          newAngle,
+          newLength
+        );
+      }
+    };
+    var svgTree = document.getElementById("svgTree");
+    var mDepth = 12;
+    setTimeout(function () {
+      drawTree(svgTree, 230, 840, 130, mDepth, Math.PI / -2, 9, false, null);
+      drawTree(svgTree, 220, 840, 180, mDepth, Math.PI / -2, 6, false, null);
+      drawTree(svgTree, 200, 840, 170, mDepth, Math.PI / -2, 12, false, null);
+    }, 0);
+  </script>
+  <h1 class="zytext"> 
+    “感恩母校，分享青春”寒假招生志愿活动<br><br>
+    “扬志愿风采，护祖国未来”暖心活动<br><br>
+    &emsp;参与4次排忧解“蓝”-周末志愿者<br><br>
+    &emsp;2022级迎新志愿者活动<br><br>
+    &emsp;操场环境维护、文明食堂等活动
+  </h1>
+</body>  
+</html>

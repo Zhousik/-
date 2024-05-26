@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4.5.0/dist/echarts.min.js"></script>
+  <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=lgj1icmXqYZaTf7V9WOs7Hj1FspANFSE"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@4.5.0/dist/extension/bmap.min.js"></script>
+  <title>长兴县</title>
+  <link rel="stylesheet" href="长兴map.css">
+  <style>
+    /* #mapContainer {
+      width: 100%;
+      height: 800px;
+    } */
+    #mapContainer{
+      width: 100%;
+      height: 25vh;
+      /* border-radius: 100%; */
+      position: relativea;
+      animation: rotate 5s infinite linear;
+    } 
+    /* #container{
+      position:absolute;
+      top:25%;
+    } */
+    *{
+                margin:0;
+                padding:0;
+                list-style:none;
+                text-decoration: none;
+            }
+            .nav{
+                height:40px;
+                background:linear-gradient(#87CEEB,#4682B4) ;
+            }
+            .navlist li{
+                float:right;
+                height:40px;
+                width:100px;
+
+                line-height: 40px;
+                text-align: center;
+            }
+            .navlist a{
+                color:black;
+                display:block;
+            }
+            .navlist{
+                width:1400px;
+                margin: auto;
+            }
+            .navlist a:hover{
+                background: #00CED1;
+            }
+            svg {
+            	position: absolute;
+            	top: 40;
+            	left: 0;
+                height:95%;
+        	}   
+          /* 民俗文化轮播 */
+          .lunbo{
+                position: absolute;
+                opacity: 0;
+                top:270%;
+                left:50%;
+                transform: translate(-20%, -50%);
+                /* width:20%;
+                height:60%; */
+                animation: Simg 10s infinite;
+            }
+
+          
+        @keyframes Simg {
+                /* 0%{opacity: 0; transform:translate(0,0);}
+                0.5%{opacity: 1;transform:translate(-30%,0);}
+                9%{opacity: 1;}
+                10%{opacity:0;transform:translate(-30%,0);} */
+                0%{opacity: 0; transform:translate(50%,-50%);}
+                20%{opacity: 0.5;transform:translate(50%,-50%);}
+                40%{opacity: 1;transform:translate(-50%,-50%);}
+                60%{opacity:0.5;transform:translate(-150%,-50%);}
+                80%{opacity:0;transform:translate(-150%,-50%);}
+
+            }
+        
+
+                img:nth-child(0){animation-delay: 0s;}
+                img:nth-child(1){animation-delay: 2s;}
+                img:nth-child(2){animation-delay: 4s;}
+                img:nth-child(3){animation-delay: 6s;}
+                img:nth-child(4){animation-delay: 8s;}
+                /* img:nth-child(5){animation-delay: 10s;} */
+
+        /* 特产轮播 */
+        .lunbo1{
+                position: absolute;
+                opacity: 0;
+                top:370%;
+                left:50%;
+                transform: translate(-20%, -50%);
+                animation: Simg1 6s infinite;}
+
+                @keyframes Simg1 {
+                /* 0%{opacity: 0; transform:translate(0,0);}
+                0.5%{opacity: 1;transform:translate(-30%,0);}
+                9%{opacity: 1;}
+                10%{opacity:0;transform:translate(-30%,0);} */
+                0%{opacity: 0; transform:translate(50%,-50%);}
+                33.3333%{opacity: 0.5;transform:translate(50%,-50%);}
+                66.6666%{opacity: 1;transform:translate(-50%,-50%);}
+                99.9999%{opacity:0.5;transform:translate(-150%,-50%);}
+                133.3333%{opacity:0;transform:translate(-150%,-50%);}
+
+            }
+                img:nth-child(5){animation-delay: 0s;}
+                img:nth-child(6){animation-delay: 2s;}
+                img:nth-child(7){animation-delay: 4s;}
+                
+              
+                /* 景点轮播 */
+                .lunbo2{
+                position: absolute;
+                opacity: 0;
+                top:470%;
+                left:50%;
+                transform: translate(-20%, -50%);
+                animation: Simg2 16s infinite;}
+
+                @keyframes Simg2 {
+                /* 0%{opacity: 0; transform:translate(0,0);}
+                0.5%{opacity: 1;transform:translate(-30%,0);}
+                9%{opacity: 1;}
+                10%{opacity:0;transform:translate(-30%,0);} */
+                0%{opacity: 0; transform:translate(50%,-50%);}
+                12.5%{opacity: 0.5;transform:translate(50%,-50%);}
+                25%{opacity: 1;transform:translate(-50%,-50%);}
+                37.5%{opacity:0.5;transform:translate(-150%,-50%);}
+                50%{opacity:0;transform:translate(-150%,-50%);}
+            }
+               
+                img:nth-child(8){animation-delay: 0s;}
+                img:nth-child(9){animation-delay: 2s;}
+                img:nth-child(10){animation-delay: 4s;}
+                img:nth-child(11){animation-delay: 6s;}
+                img:nth-child(12){animation-delay: 8s;}
+                img:nth-child(13){animation-delay: 10s;}
+                img:nth-child(14){animation-delay: 12s;} 
+                img:nth-child(15){animation-delay: 14s;}
+               
+                   
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <ul class="navlist">
+        <li><a href="登录.html">登录</a></li>
+        <!-- <li><a href="学校.html">学校</a></li> -->
+        <li><a href="长兴map.html">家乡</a></li>
+        <li><a href="个人简介.html">简历</a></li>
+        <li><a href="主页.html">主页</a></li>
+    </ul>
+  </div>
+  <div id="mapContainer"></div>
+  <script type="text/javascript">
+    var mapChart = null; //表示地图绘制对象
+    function renderMap() { //绘制地图的主函数
+      var dom = document.getElementById("mapContainer");
+      //获取绘制地图的dom元素
+      if (mapChart == null) {
+        var mapChart = echarts.init(dom);
+      }
+      var option = null; //声明数据配置项
+      var main3city = [{
+          name: "潼桥村",
+          value: [120.038094,30.99915]
+        },
+      ];
+      var jingdian = [{
+          name: "太湖图影生态湿地文化公园",
+          value: [120.083589,30.964702]
+        },
+        {
+          name: "大唐贡茶院",
+          value: [119.812934,31.134358]
+        },
+        {
+          name: "仙山湖风景区",
+          value: [119.621337,30.900634]
+        },
+        {
+          name: "太湖古镇",
+          value: [120.082758,30.958303]
+        },
+        {
+          name: "长兴十里银杏长廊",
+          value: [119.793809,31.024152]
+        },
+        {
+          name: "金钉子国家地质遗迹保护区",
+          value: [119.701007,31.078154]
+        },
+        {
+          name: "中国扬子鳄村",
+          value: [119.742847,30.930567]
+        },
+        {
+          name: "陈武帝故宫",
+          value: [119.944666,31.012419]
+        }
+      ];
+      option = {
+        animation: true, //是否使用动画效果
+        bmap: {
+          center: [120.038094,30.99915],
+          zoom: 11,
+          roam: true,
+          //mapStyle:{style:'pink'} //设置地图风格为浪漫粉
+         mapStyle:{style:'light'} //设置地图风格为清新蓝
+   
+   
+   
+        },
+        series: [
+          {
+            type: 'effectScatter',
+            name: '主要三县数据',
+            coordinateSystem: 'bmap',
+            data: main3city,
+            symbolSize: 10,
+            showEffectOn: 'render',
+            rippleEffect: {
+              brushType: 'stroke',
+              scale: 12
+            },
+            hoverAnimation: true,
+            label: {
+              normal: {
+                show: true,
+                formatter: '{b}',
+                position: 'right',
+                textStyle: {
+                  color: '#800000',
+                  fontSize: 20
+                }
+              }
+            },
+            itemStyle: {
+              normal: {
+                borderWidth: 1,
+                color: 'red'
+              }
+            }
+          },
+          {
+            type: 'effectScatter',
+            name: '景点数据',
+            coordinateSystem: 'bmap',
+            data: jingdian,
+            symbolSize: 10,
+            showEffectOn: 'render',
+            rippleEffect: {
+              brushType: 'stroke',
+              scale: 12
+            },
+            hoverAnimation: true,
+            label: {
+              normal: {
+                show: true,
+                formatter: '{b}',
+                position: 'right',
+                textStyle: {
+                  color: '#800000',
+                  fontSize: 20
+                }
+              }
+            },
+            itemStyle: {
+              normal: {
+                borderWidth: 1,
+                color: 'blue'
+              }
+            }
+          },
+        ]
+      }
+
+      mapChart.setOption(option); //先渲染地图，然后再获取控制
+      var bmap = mapChart.getModel().getComponent('bmap').getBMap();
+      bmap.addControl(new BMap.MapTypeControl());
+
+    }
+
+    renderMap();
+  </script>
+   <div class="container">
+    <section id="img-one" class="img">
+        <h1>家乡介绍</h1>
+    </section>
+    <section class="content-one">
+        <div class="text-box">
+            <div class="cnt1">
+                <h2>历史传承</h2>
+                <p><br>
+                  长兴古称长城。春秋吴越争霸时期（前514—前495年），吴王阖闾派弟夫概在今雉城东南两里<br><br>
+                  处筑城，作为夫概王邑。因城狭长，故名长城，已有2500多年的历史。长兴县有被称作“江南<br><br>
+                  小延安”的新四军苏浙军区司令部旧址群，有被誉为“古生态三绝”的“金钉子”地质遗迹、<br><br>
+                  古银杏和扬子鳄这三个上亿年的珍稀自然遗产，还有风景秀丽的图影湿地、仙山仙湖、顾渚茶<br><br>
+                  乡和人文特色鲜明的陈武帝故宫等景区。
+                      
+                </p>
+                <!-- <p>
+                    <a href="#" class="btn">TAKE <strong>CARE OF</strong><em>YOURSEFL</em></a>
+                </p> -->
+            </div>
+        </div>
+    </section>
+    <section class="content-two">
+        <div class="text-box">
+            <div class="cnt">
+                <h2>民俗文化</h2>
+                <p>
+                    长兴的民宿文化主要有长兴百叶龙、二界岭乡二界岭村花鼓戏、洪桥镇小沉渎村<br>滩簧、槐坎乡六都村走马灯、紫笋茶制作技艺等。
+                </p>
+                <!-- <p>
+                    <a href="#" class="btn">BEST <strong>WISHS</strong><em>FOR YOU</em></a>
+                </p> -->
+            </div>
+        </div>
+    </section>
+    <section class="content-three">
+        <div class="text-box">
+            <div class="cnt">
+                <h2>地方特产</h2>
+                <p>
+                  长兴县历来有“鱼米之乡”、“丝绸之府”、“东南望县”的美誉，著名的特产有“太湖四珍”、<br>“长兴四宝”、“品茗三绝”等。    
+                </p>
+                <!-- <p>
+                    <a href="#" class="btn">TAKE <strong>CARE OF</strong><em>YOURSEFL</em></a>
+                </p> -->
+            </div>
+        </div>
+    </section>
+    <section class="content-four">
+      <div class="text-box">
+          <div class="cnt">
+              <h2>旅游景点</h2>
+              <p>
+                 长兴著名的旅游景点有太湖图影生态湿地文化公园 、大唐贡茶院、仙山湖风景区 、<br>
+                 太湖古镇、长兴古银杏长廊、金钉子国家地质遗迹保护区、中国扬子鳄村、陈武帝故宫等。
+              </p>
+              <!-- <p>
+                  <a href="#" class="btn">TAKE <strong>CARE OF</strong><em>YOURSEFL</em></a>
+              </p> -->
+          </div>
+      </div>
+  </section>
+  <!-- <section id="img-two" class="img">
+    <h1>人际关系</h1>
+</section> -->
+    <!-- <section id="footer">FOOTER</section> -->
+</div>
+<div>
+  <img src="image/百叶龙.jpg" alt="" class="lunbo" width="400" height="300">
+  <img src="image/花鼓戏.jpg" alt="" class="lunbo" width="400" height="300">
+  <img src="image/滩簧.jpg" alt="" class="lunbo" width="400" height="300">
+  <img src="image/走马灯.jpg" alt="" class="lunbo" width="400" height="300">
+  <img src="image/紫笋茶.jpg" alt="" class="lunbo" width="300" height="400">
+  
+  
+  <img src="image/太湖四珍.jpg" alt="" class="lunbo1" width="300" height="400">
+  <img src="image/长兴四宝.jpg" alt="" class="lunbo1" width="300" height="400">
+  <img src="image/品茗三绝.jpg" alt="" class="lunbo1" width="300" height="400">
+
+
+  <img src="image/图影.jpg" alt="" class="lunbo2" width="300" height="400">
+  <img src="image/贡茶院.jpg" alt="" class="lunbo2" width="300" height="400">
+  <img src="image/仙山湖.jpg" alt="" class="lunbo2" width="300" height="400">
+  <img src="image/银杏.jpg" alt="" class="lunbo2" width="300" height="400">
+  <img src="image/龙之梦.jpg" alt="" class="lunbo2" width="400" height="300">
+  <img src="image/金钉子.jpg" alt="" class="lunbo2" width="400" height="300">
+  <img src="image/扬子鳄.jpg" alt="" class="lunbo2" width="400" height="300">
+  <img src="image/陈武帝.jpg" alt="" class="lunbo2" width="400" height="300"> 
+</div>
+
+</body>
+</html>
